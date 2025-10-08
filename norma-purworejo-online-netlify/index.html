@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Norma & Adat Istiadat Purworejo — Pembelajaran Kelas 4 SD</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <div class="splash-card">
+      <img src="images/favicon.svg" alt="logo" class="splash-logo"/>
+      <h1>Selamat datang di Web Pembelajaran<br><span>Norma dan Adat Istiadat Daerahku 🌾</span></h1>
+      <p>Belajar kearifan lokal Purworejo yang terintegrasi dengan nilai-nilai Al-Islam Kemuhammadiyahan.</p>
+      <button id="startBtn" class="cta">Mulai Belajar</button>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="brand">SD Muhammadiyah Purworejo</div>
+    <nav class="nav-main">
+      <a href="#materi">Materi</a>
+      <a href="#video-adat">Video Adat</a>
+      <a href="#evaluasi">Evaluasi</a>
+      <a href="#tanya">Tanya Web</a>
+      <a href="#permainan">Permainan</a>
+      <a href="#petunjuk">Petunjuk</a>
+      <a href="#profil">Profil</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="materi">
+      <h2>Room Materi</h2>
+      <div class="cards">
+        <div class="card" onclick="openRoom('pengertian')"><h3>Pengertian Norma & Adat</h3><p>Penjelasan sederhana dan contoh.</p></div>
+        <div class="card" onclick="openRoom('rumah')"><h3>Norma di Rumah</h3><p>Contoh perilaku di keluarga.</p></div>
+        <div class="card" onclick="openRoom('sekolah')"><h3>Norma di Sekolah</h3><p>Perilaku di lingkungan sekolah.</p></div>
+        <div class="card" onclick="openRoom('purworejo')"><h3>Adat Purworejo</h3><p>Contoh adat lokal (isi oleh guru).</p></div>
+        <div class="card" onclick="openRoom('nilai')"><h3>Nilai Islam & Muhammadiyah</h3><p>Kaitan norma dengan nilai agama.</p></div>
+      </div>
+    </section>
+
+    <section id="video-adat">
+      <h2>🎬 Galeri Video Adat Purworejo: Belajar dari Budaya dan Nilai Islam</h2>
+      <div class="video-grid" id="videoGrid">
+        <div class="video-card" data-type="youtube" data-src="https://www.youtube.com/embed/YE7VzlLtp-4?rel=0&modestbranding=1">
+          <img src="images/adat1.jpg" alt="adat1"><h3>Upacara Wiwitan</h3><p>Video singkat tradisi panen.</p>
+          <button class="btn" onclick="openVideo(this.parentElement)">Putar</button>
+        </div>
+        <div class="video-card" data-type="youtube" data-src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0&modestbranding=1">
+          <img src="images/adat2.jpg" alt="adat2"><h3>Gotong Royong Desa</h3><p>Gotong royong di masyarakat.</p>
+          <button class="btn" onclick="openVideo(this.parentElement)">Putar</button>
+        </div>
+        <div class="video-card" data-type="youtube" data-src="https://www.youtube.com/embed/YE7VzlLtp-4?rel=0&modestbranding=1">
+          <img src="images/adat3.jpg" alt="adat3"><h3>Tradisi Kenduren & Nilai Islam</h3><p>Hubungan tradisi syukur dengan agama.</p>
+          <button class="btn" onclick="openVideo(this.parentElement)">Putar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluasi">
+      <h2>Evaluasi Berlevel</h2>
+      <div class="levels">
+        <div id="lvl1" class="level">Level 1: Di Rumah</div>
+        <div id="lvl2" class="level locked">Level 2: Di Sekolah</div>
+        <div id="lvl3" class="level locked">Level 3: Di Masyarakat</div>
+      </div>
+      <div id="game-area" class="game-area">
+        <div id="scoreboard">Skor: <span id="score">0</span></div>
+        <div id="game-content"><p>Pilih level untuk mulai.</p></div>
+      </div>
+      <div class="progress-wrap"><div id="progress" class="progress"></div></div>
+    </section>
+
+    <section id="tanya">
+      <h2>💬 Tanya Web</h2>
+      <div class="chat-wrap">
+        <div id="chatBody" class="chat-body"></div>
+        <div class="chat-input"><input id="chatInput" placeholder="Tanyakan sesuatu..." /><button id="sendBtn">Kirim</button></div>
+      </div>
+    </section>
+
+    <section id="permainan">
+      <h2>🎮 Permainan Kelas (Projector Mode)</h2>
+      <div class="proj-grid">
+        <div class="card proj-card">
+          <h3>Benar / Salah (Timer)</h3>
+          <div id="tf-question">Klik Mulai</div>
+          <div class="proj-controls"><button id="tf-start" class="btn">Mulai</button><span>Waktu: <span id="tf-timer">--</span>s</span></div>
+          <div class="tf-btns"><button id="tf-true" class="btn alt">Benar</button><button id="tf-false" class="btn">Salah</button></div>
+          <div id="tf-result"></div>
+        </div>
+        <div class="card proj-card">
+          <h3>Tebak Adat (Slide)</h3>
+          <img id="slide-img" src="images/adat1.jpg" alt="slide" style="width:100%;border-radius:8px;">
+          <div class="slide-controls"><button id="prev-slide" class="btn">◀</button><button id="next-slide" class="btn alt">▶</button></div>
+          <div id="slide-caption"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="petunjuk">
+      <h2>📘 Petunjuk Penggunaan</h2>
+      <div class="doc">
+        <ol>
+          <li>Buka file index.html di browser atau upload ke Netlify/GitHub Pages.</li>
+          <li>Gunakan menu untuk navigasi materi, video, permainan, dan chat.</li>
+          <li>Untuk mengganti video, edit iframe src di index.html atau upload mp4 ke /assets.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="profil">
+      <h2>🌟 Tim Hebat di Balik Layar!</h2>
+      <div class="doc profile">
+        <p>Hai, teman-teman! 👋 Kenalan dulu, yuk! Kami adalah tim kreatif yang membuat website pembelajaran ini jadi seru, interaktif, dan bikin semangat belajar! 🚀</p>
+        <p>✨ Anggota Tim:</p>
+        <ul>
+          <li>🌼 Nur Yusuf Kafianto (232180071)</li>
+          <li>🌻 Rahmattullah (232180086)</li>
+          <li>🌸 Muhammad Khadhiq (232180088)</li>
+          <li>🍀 Lusi Novita (232180124)</li>
+          <li>🌷 Puspita Dian Kristal (232180125)</li>
+          <li>🌺 Resmi Wahyu Insani (242180126)</li>
+          <li>🌹 Susilo Sekar Wangi (232180127)</li>
+        </ul>
+        <p>Kami mahasiswa Semester 5 Program Studi Pendidikan Guru Sekolah Dasar (PGSD), Fakultas Keguruan dan Ilmu Pendidikan 🎓</p>
+        <p>Kami percaya, belajar nggak harus membosankan! Dengan sentuhan kreativitas dan semangat kolaborasi, kami ingin menghadirkan pengalaman belajar yang asyik, berwarna, dan penuh makna! 💫</p>
+      </div>
+    </section>
+
+    <footer>© 2025 — Norma & Adat Istiadat Purworejo</footer>
+  </main>
+
+  <!-- modals -->
+  <div id="roomModal" class="modal"><div class="modal-inner"><button class="close" onclick="closeRoom()">✕</button><h3 id="roomTitle"></h3><div id="roomBody"></div></div></div>
+  <div id="videoModal" class="modal"><div class="modal-inner video-inner"><button class="close" onclick="closeVideo()">✕</button><div id="videoFrame"></div><div id="videoCaption"></div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
